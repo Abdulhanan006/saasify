@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Pricing Plans</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Skip to main content for keyboard users -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Animated Background Shapes -->
+    <div class="bg-shape shape-1" aria-hidden="true"></div>
+    <div class="bg-shape shape-2" aria-hidden="true"></div>
+    <div class="bg-shape shape-3" aria-hidden="true"></div>
+
+    <!-- Navigation Overlay -->
+    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo" aria-label="SaaSify Home">
+                <i class="fa-solid fa-layer-group" aria-hidden="true"></i> SaaSify
+            </a>
+            
+            <div class="mobile-menu-wrapper" id="mobile-menu-wrapper">
+                <ul class="nav-links" id="nav-menu" role="menubar">
+                    <li role="none"><a href="#features" role="menuitem">Features</a></li>
+                    <li role="none"><a href="#pricing" class="active" role="menuitem" aria-current="page">Pricing</a></li>
+                    <li role="none"><a href="#faq" role="menuitem">FAQ</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                    </button>
+                    <button class="btn btn-secondary" id="login-btn">Log in</button>
+                    <button class="btn btn-primary" id="signup-btn">Sign up</button>
+                </div>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Toggle navigation menu" aria-controls="mobile-menu-wrapper">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="hero">
+        <div class="container">
+            <h1 class="hero-title">Simple, transparent pricing</h1>
+            <p class="hero-subtitle">No surprise fees. Just pricing that scales with your business.</p>
+            
+            <!-- Controls -->
+            <div class="pricing-controls">
+                <!-- Currency Switcher -->
+                <div class="currency-selector">
+                    <label for="currency-select" class="sr-only">Select Currency</label>
+                    <select id="currency-select" aria-label="Select Currency">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="PKR">PKR (₨)</option>
+                    </select>
+                </div>
+
+                <!-- Monthly/Yearly Toggle -->
+                <div class="billing-toggle">
+                    <span class="toggle-label" id="label-monthly" aria-hidden="true">Monthly</span>
+                    <label class="switch" for="billing-checkbox" aria-label="Toggle billing cycle">
+                        <input type="checkbox" id="billing-checkbox" role="switch" aria-checked="false">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label" id="label-yearly" aria-hidden="true">
+                        Yearly <span class="discount-badge">Save 20%</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Pricing Section -->
+        <div class="container" id="pricing">
+            <!-- Loading and Error States -->
+            <div id="loader" class="loader-container" role="status" aria-live="polite">
+                <div class="spinner" aria-hidden="true"></div>
+                <p>Loading plans...</p>
+            </div>
+            
+            <div id="error-message" class="error-container hidden" role="alert">
+                <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                <p>Failed to load pricing data. Please try again later.</p>
+                <button id="retry-btn" class="btn btn-secondary">Retry</button>
+            </div>
+
+            <!-- Pricing Cards Container -->
+            <div id="pricing-grid" class="pricing-grid hidden" aria-live="polite">
+                <!-- Cards will be dynamically inserted here via JS -->
+            </div>
+        </div>
+
+        <!-- Key Features Section -->
+        <section id="features" class="key-features container">
+            <h2>Why choose SaaSify?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+                    <h3>Lightning Fast</h3>
+                    <p>Our global edge network ensures your websites load instantly from anywhere in the world.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+                    <h3>Bank-grade Security</h3>
+                    <p>Built-in DDoS protection, free SSL certificates, and advanced firewall rules keep your data safe.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+                    <h3>24/7 Expert Support</h3>
+                    <p>Our dedicated support team is always online to help you solve any issues immediately.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line" aria-hidden="true"></i></div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Gain deep insights into your traffic and user behavior with our real-time analytics dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></div>
+                    <h3>Automated Backups</h3>
+                    <p>Never lose your data with automated daily backups and point-in-time recovery options.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></div>
+                    <h3>Developer Friendly</h3>
+                    <p>Comprehensive APIs, Webhooks, and CLI tools seamlessly integrate into your workflow.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Comparison -->
+        <section class="features-comparison container">
+            <h2>Compare all features</h2>
+            <div class="table-container" tabindex="0" aria-label="Feature comparison table">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Features</th>
+                            <th scope="col">Basic</th>
+                            <th scope="col">Standard</th>
+                            <th scope="col">Premium</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Websites</th>
+                            <td>1</td>
+                            <td>5</td>
+                            <td>Unlimited</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Storage</th>
+                            <td>5 GB</td>
+                            <td>50 GB</td>
+                            <td>200 GB</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Support</th>
+                            <td>Basic</td>
+                            <td>Priority</td>
+                            <td>24/7 Priority</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Free SSL</th>
+                            <td><i class="fa-solid fa-check text-success" aria-label="Included"></i></td>
+                            <td><i class="fa-solid fa-check text-success" aria-label="Included"></i></td>
+                            <td><i class="fa-solid fa-check text-success" aria-label="Included"></i></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Daily Backups</th>
+                            <td><i class="fa-solid fa-xmark text-muted" aria-label="Not included"></i></td>
+                            <td><i class="fa-solid fa-check text-success" aria-label="Included"></i></td>
+                            <td><i class="fa-solid fa-check text-success" aria-label="Included"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">
+                        <h3>Can I cancel my subscription?</h3>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-1">
+                        <p>Yes, you can cancel your subscription at any time. Your plan will remain active until the end of your billing cycle. You can manage your subscription directly from your dashboard.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">
+                        <h3>Do you offer refunds?</h3>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-2">
+                        <p>We offer a 14-day money-back guarantee for all new annual subscriptions. If you are not satisfied with our service, simply contact support within the first 14 days for a full refund.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">
+                        <h3>Can I switch plans later?</h3>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-3">
+                        <p>Absolutely. You can upgrade or downgrade your plan at any time. Prorated charges or credits will be applied automatically to your next billing cycle.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4">
+                        <h3>What payment methods are accepted?</h3>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-4">
+                        <p>We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and wire transfers for annual billing on Premium and Enterprise plans.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">
+                        <h3>Is there a discount for non-profits?</h3>
+                        <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+                    </button>
+                    <div class="faq-answer" id="faq-answer-5">
+                        <p>Yes! We offer a 50% discount on all plans for qualified non-profit organizations. Please reach out to our sales team with your 501(c)(3) documentation to apply.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo" aria-label="SaaSify Home">
+                    <i class="fa-solid fa-layer-group" aria-hidden="true"></i> SaaSify
+                </a>
+                <p>Empowering businesses to grow faster and smarter.</p>
+                <div class="social-links" aria-label="Social media links">
+                    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Product</h4>
+                    <ul aria-label="Product links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Company</h4>
+                    <ul aria-label="Company links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <ul aria-label="Legal links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom container">
+            <p>&copy; 2026 SaaSify Inc. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Auth Modals -->
+    <!-- Log In Modal -->
+    <div class="modal" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="login-title" aria-hidden="true">
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal" data-close-modal>
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <h2 id="login-title">Welcome back</h2>
+            <p class="modal-subtitle">Log in to your account or access the Admin Panel.</p>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" required placeholder="admin@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required placeholder="••••••••">
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Sign In</button>
+            </form>
+            <div class="modal-footer">
+                <p>Don't have an account? <button type="button" class="link-btn" id="switch-to-signup">Sign up</button></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sign Up Modal -->
+    <div class="modal" id="signup-modal" role="dialog" aria-modal="true" aria-labelledby="signup-title" aria-hidden="true">
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal" data-close-modal>
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <h2 id="signup-title">Create an account</h2>
+            <p class="modal-subtitle">Start your 14-day free trial. No credit card required.</p>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" id="signup-name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" id="signup-email" required placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Create Account</button>
+            </form>
+            <div class="modal-footer">
+                <p>Already have an account? <button type="button" class="link-btn" id="switch-to-login">Log in</button></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
